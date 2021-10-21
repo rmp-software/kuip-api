@@ -1,0 +1,25 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Url {
+  id: ID!
+  slug: String!
+  target: String!
+  visits: Float!
+}
+
+type Query {
+  urls: [Url!]!
+  url(id: Int!): Url!
+}
+
+type Mutation {
+  store(createUrlInput: CreateUrlInput!): Url!
+  destroy(id: Int!): Url!
+}
+
+input CreateUrlInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
