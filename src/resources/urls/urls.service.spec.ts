@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import faker from 'faker';
+import * as faker from 'faker';
 import {
   getConnection,
   Repository,
