@@ -22,11 +22,6 @@
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
     "pretypeorm": "yarn build"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn test"
-    }
-  },
   "dependencies": {
     "@grpc/proto-loader": "^0.6.4",
     "@nestjs/common": "^8.0.0",
@@ -96,5 +91,10 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn test"
+    }
   }
 }
