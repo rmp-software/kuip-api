@@ -10,16 +10,14 @@ type Url {
 }
 
 type Query {
-  urls: [Url!]!
-  url(id: Int!): Url!
+  url(id: String!): Url!
 }
 
 type Mutation {
-  store(createUrlInput: CreateUrlInput!): Url!
-  destroy(id: Int!): Url!
+  createUrl(input: CreateUrlInput!): Url!
 }
 
 input CreateUrlInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  target: String!
+  slug: String
 }

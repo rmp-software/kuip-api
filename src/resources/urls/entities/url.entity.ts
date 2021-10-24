@@ -25,7 +25,7 @@ export class Url {
   target: string;
 
   @Field()
-  @Column()
+  @Column({ default: 0 })
   visits: number;
 
   @CreateDateColumn({ name: 'created_at' })
