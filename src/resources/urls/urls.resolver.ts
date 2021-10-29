@@ -16,4 +16,9 @@ export class UrlsResolver {
   url(@Args('id', { type: () => String }) id: string) {
     return this.urlsService.findOne(id);
   }
+
+  @Query(() => [Url], { name: 'urls' })
+  urls() {
+    return this.urlsService.findAll();
+  }
 }

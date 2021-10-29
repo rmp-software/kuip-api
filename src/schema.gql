@@ -11,6 +11,7 @@ type Url {
 
 type Query {
   url(id: String!): Url!
+  urls: [Url!]!
 }
 
 type Mutation {

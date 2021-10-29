@@ -18,6 +18,10 @@ export class UrlsService {
     return this.urlRepo.findOneOrFail(id);
   }
 
+  findAll() {
+    return this.urlRepo.find();
+  }
+
   findBySlug(slug: string) {
     return this.urlRepo.findOneOrFail({ where: { slug } });
   }

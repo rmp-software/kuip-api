@@ -4,6 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 
 import { PostgresDatabaseProviderModule } from './providers/database/postgres/provider.module';
+import { LoggingPlugin } from './plugins/logging/logging.plugin';
 import { UrlsModule } from './resources/urls/urls.module';
 
 @Module({
@@ -16,5 +17,6 @@ import { UrlsModule } from './resources/urls/urls.module';
     PostgresDatabaseProviderModule,
     UrlsModule,
   ],
+  providers: [LoggingPlugin],
 })
 export class AppModule {}
