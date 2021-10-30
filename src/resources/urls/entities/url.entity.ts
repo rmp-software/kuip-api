@@ -6,12 +6,13 @@ import {
   UpdateDateColumn,
   BeforeInsert,
   PrimaryGeneratedColumn,
+  BaseEntity,
 } from 'typeorm';
 import { generate } from 'shortid';
 
 @ObjectType()
 @Entity({ name: 'urls' })
-export class Url {
+export class Url extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   @Field(() => ID)
   id: string;

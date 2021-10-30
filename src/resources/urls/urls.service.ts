@@ -1,8 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Url } from './entities/url.entity';
 import { Repository } from 'typeorm';
+
+import { paginate } from 'src/common/pagination/pagination';
+import { PaginationInput } from 'src/common/pagination/dto/pagination.input';
+import { Url } from './entities/url.entity';
 import { CreateUrlInput } from './dto/create-url.input';
+import { UrlsPaginationInput } from 'src/resources/urls/dto/paginated-url.input';
 
 @Injectable()
 export class UrlsService {
@@ -24,6 +28,12 @@ export class UrlsService {
 
   findBySlug(slug: string) {
     return this.urlRepo.findOneOrFail({ where: { slug } });
+  }
+
+  async findPaginated(pagination: UrlsPaginationInput = {}) {
+    const query = this.urlRepo.createQueryBuilder().select();
+
+    return paginate<Url>(query, pagination, 'slug');
   }
 
   async findBySlugAndIncrement(slug: string): Promise<Url> {

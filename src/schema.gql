@@ -2,6 +2,13 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type PageInfo {
+  startCursor: String
+  endCursor: String
+  hasPreviousPage: Boolean!
+  hasNextPage: Boolean!
+}
+
 type Url {
   id: ID!
   slug: String!
@@ -9,9 +16,26 @@ type Url {
   visits: Float!
 }
 
+type UrlsConnection {
+  edges: [UrlEdge!]
+  pageInfo: PageInfo
+}
+
+type UrlEdge {
+  cursor: String!
+  node: Url!
+}
+
 type Query {
   url(id: String!): Url!
-  urls: [Url!]!
+  urls(pagination: UrlsPaginationInput): UrlsConnection!
+}
+
+input UrlsPaginationInput {
+  first: Int
+  after: String
+  last: Int
+  before: String
 }
 
 type Mutation {
